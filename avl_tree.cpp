@@ -212,6 +212,19 @@ void avl_del(std::shared_ptr<avl_node> &t, const T &k, bool &d) {
     }
 }
 
+void avl_find(std::shared_ptr<avl_node>& t, std::shared_ptr<avl_node>& res, const T& k, bool& d){
+
+    if (t == nullptr) {
+        d = false;
+    } else if (t->key == k) {
+        res = t;
+    } else if (t->key > k) {
+        avl_find(t->right, res, k, d);
+    } else {
+        avl_find(t->left, res, k, d);
+    }
+}
+
 void inorder_print(std::shared_ptr<avl_node> &root) {
 
     if (root != nullptr) {

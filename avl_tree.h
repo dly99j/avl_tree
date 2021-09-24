@@ -46,6 +46,8 @@ void avl_del_root(std::shared_ptr<avl_node>& t, bool& d);
 
 void avl_del(std::shared_ptr<avl_node>& t, const T& k, bool& d);
 
+void avl_find(std::shared_ptr<avl_node>& t, std::shared_ptr<avl_node>& res, const T& k, bool& d);
+
 void inorder_print(std::shared_ptr<avl_node>& root);
 
 

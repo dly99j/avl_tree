@@ -233,3 +233,21 @@ void inorder_print(std::shared_ptr<avl_node> &root) {
         inorder_print(root->right);
     }
 }
+
+void preorder_print(std::shared_ptr<avl_node>& root) {
+
+    if (root != nullptr) {
+        std::cout << root->key << " ";
+        preorder_print(root->left);
+        preorder_print(root->right);
+    }
+}
+
+void postorder_print(std::shared_ptr<avl_node>& root) {
+
+    if (root != nullptr) {
+        postorder_print(root->left);
+        postorder_print(root->right);
+        std::cout << root->key << " ";
+    }
+}

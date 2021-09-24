@@ -2,8 +2,9 @@
 #include "avl_tree.h"
 
 int main() {
-    auto root = std::make_shared<avl_node>(20);
+    std::shared_ptr<avl_node> root;
     bool d;
+    /*
     avl_insert(root, 10, d);
     avl_insert(root, 15, d);
     avl_insert(root, 0, d);
@@ -35,4 +36,19 @@ int main() {
 
     inorder_print(root);
     std::cout << std::endl << std::endl;
+     */
+
+    for (int i = 1; i < 15; ++i) {
+        avl_insert(root, i, d);
+    }
+
+    avl_del(root, 1, d);
+
+    inorder_print(root);
+    std::cout << "\n";
+
+    postorder_print(root);
+    std::cout << "\n";
+
+    preorder_print(root);
 }

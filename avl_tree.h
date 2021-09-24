@@ -12,6 +12,10 @@
 
 using T = int; //any value that has comparison operators defined
 
+//CAREFUL: if you initialise a shared_pointer with make_shared at declaration, without a key as parameter
+//it will add a random node to your tree (most likely 0) and it will be a pain in the ass bug to detect
+//but shared_ptr requires a default constructor if I want to instantiate a nullptr
+//TODO find a safer workaround
 struct avl_node {
 	T key;
 	int balance = 0;
@@ -49,6 +53,8 @@ void avl_del(std::shared_ptr<avl_node>& t, const T& k, bool& d);
 void avl_find(std::shared_ptr<avl_node>& t, std::shared_ptr<avl_node>& res, const T& k, bool& d);
 
 void inorder_print(std::shared_ptr<avl_node>& root);
+void preorder_print(std::shared_ptr<avl_node>& root);
+void postorder_print(std::shared_ptr<avl_node>& root);
 
 
 
